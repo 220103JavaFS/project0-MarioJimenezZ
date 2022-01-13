@@ -5,8 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class Encryption {
 
-
-
     public static String stringToMD5(String s) {
         final byte[] defaultBytes = s.getBytes();
         try {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class AccountDAO extends DAO<Account> {
 
-    private Logger log = LoggerFactory.getLogger(AccountDAO.class);
+    private final Logger log = LoggerFactory.getLogger(AccountDAO.class);
 
     public AccountDAO() {
         update();
@@ -42,7 +42,6 @@ public class AccountDAO extends DAO<Account> {
     public boolean update() {
         objects.clear();
 
-
         ResultSet accounts_query = database.executeQuery("SELECT * FROM accounts");
 
         try {
@@ -57,7 +56,7 @@ public class AccountDAO extends DAO<Account> {
             }
             accounts_query.close();
         }  catch(SQLException e){
-            log.info("Error while creating account list");
+            log.warn("Error while creating account list");
             log.error(e.getClass().getName() + ": " + e.getMessage());
             return false;
         }

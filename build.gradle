@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.javalin:javalin:4.1.1'
+    implementation 'io.javalin:javalin:4.2.0'
     implementation 'ch.qos.logback:logback-classic:1.2.10'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
     implementation 'org.postgresql:postgresql:42.3.1'

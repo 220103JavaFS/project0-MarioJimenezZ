@@ -13,3 +13,131 @@
 07:58:46.316 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
 07:58:46.338 [] [main] INFO  io.javalin.Javalin - Javalin started in 172ms \o/
 07:59:06.361 [] [qtp1008925772-25] INFO  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
+09:38:22.271 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+09:38:22.280 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1888ms to org.eclipse.jetty.util.log.Slf4jLog
+09:38:22.281 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+09:38:22.295 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+09:38:22.453 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+09:38:22.477 [] [main] INFO  io.javalin.Javalin - Javalin started in 172ms \o/
+09:39:45.525 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+09:39:45.533 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1901ms to org.eclipse.jetty.util.log.Slf4jLog
+09:39:45.535 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+09:39:45.551 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+09:39:45.706 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+09:39:45.732 [] [main] INFO  io.javalin.Javalin - Javalin started in 172ms \o/
+09:39:58.241 [] [JettyServerThreadPool-18] WARN  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
+09:40:28.087 [] [JettyServerThreadPool-14] WARN  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
+09:40:42.622 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+09:40:42.631 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1943ms to org.eclipse.jetty.util.log.Slf4jLog
+09:40:42.632 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+09:40:42.648 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+09:40:42.807 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+09:40:42.831 [] [main] INFO  io.javalin.Javalin - Javalin started in 175ms \o/
+09:40:50.678 [] [JettyServerThreadPool-25] WARN  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
+09:45:52.084 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+09:45:52.093 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2667ms to org.eclipse.jetty.util.log.Slf4jLog
+09:45:52.094 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+09:45:52.109 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+09:45:52.264 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+09:45:52.289 [] [main] INFO  io.javalin.Javalin - Javalin started in 171ms \o/
+09:45:55.650 [] [JettyServerThreadPool-25] WARN  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
+09:46:04.266 [] [JettyServerThreadPool-15] WARN  com.revature.dao.AccountDAO - Customer successfully registered with email: amazonaws@fdaad.net
+09:47:53.399 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+09:47:53.408 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2005ms to org.eclipse.jetty.util.log.Slf4jLog
+09:47:53.409 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+09:47:53.423 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+09:47:53.578 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+09:47:53.601 [] [main] INFO  io.javalin.Javalin - Javalin started in 170ms \o/
+09:48:00.735 [] [JettyServerThreadPool-25] WARN  c.r.controllers.AccountController - Customer tried registering multiple accounts with email: amazonaws@fdaad.net
+10:08:27.910 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+10:08:27.918 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1856ms to org.eclipse.jetty.util.log.Slf4jLog
+10:08:27.919 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+10:08:27.933 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+10:08:28.077 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+10:08:28.099 [] [main] INFO  io.javalin.Javalin - Javalin started in 158ms \o/
+10:15:13.388 [] [JettyServerThreadPool-25] WARN  c.r.controllers.AccountController - Customer tried registering multiple accounts with email: amazonaws@fdaad.net
+10:20:56.051 [] [JettyServerThreadPool-19] INFO  c.r.controllers.AccountController - Customer successfully registered with email: edwin.feliz@revature.net
+11:27:03.618 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+11:27:03.626 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1932ms to org.eclipse.jetty.util.log.Slf4jLog
+11:27:03.627 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+11:27:03.641 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+11:27:03.789 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+11:27:03.810 [] [main] INFO  io.javalin.Javalin - Javalin started in 163ms \o/
+11:27:21.100 [] [JettyServerThreadPool-25] INFO  c.r.controllers.AccountController - Customer successfully logged in via email: edwin.feliz@revature.net
+11:27:38.715 [] [JettyServerThreadPool-15] WARN  c.r.controllers.AccountController - Customer tried logging in with invalid password: com.revature.models.Account@bc61598c
+11:27:42.866 [] [JettyServerThreadPool-16] INFO  c.r.controllers.AccountController - Customer successfully logged in via email: edwin.feliz@revature.net
+11:27:48.459 [] [JettyServerThreadPool-19] WARN  c.r.controllers.AccountController - Customer tried logging in unregistered email: com.revature.models.Account@68c7212d
+11:27:58.885 [] [JettyServerThreadPool-16] WARN  c.r.controllers.AccountController - Customer tried logging in with invalid email: com.revature.models.Account@8e97998f
+12:00:09.522 [] [JettyServerThreadPool-13] INFO  c.r.controllers.AccountController - Customer successfully logged in via email: edwin.feliz@revature.net
+12:02:58.528 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+12:02:58.540 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2035ms to org.eclipse.jetty.util.log.Slf4jLog
+12:02:58.541 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+12:02:58.555 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+12:02:58.698 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+12:02:58.720 [] [main] INFO  io.javalin.Javalin - Javalin started in 159ms \o/
+12:03:02.860 [] [JettyServerThreadPool-25] WARN  c.r.controllers.AccountController - Customer tried logging in unregistered email: Account{email='edwin.felz@revature.net', password='fdfdsfasfasfa', accountType=null, balance=0.0, id=0}
+12:04:27.118 [] [JettyServerThreadPool-13] WARN  c.r.controllers.AccountController - Customer tried logging in unregistered email: Account{email='edwin.felz@revature.net', password='fdfdsfasfasfa', accountType=null, balance=0.0, id=0}

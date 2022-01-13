@@ -9,10 +9,6 @@ import java.util.ArrayList;
 
 public class AccountService {
 
-    public enum saveAccountReply {
-        SUCCESS, INVALID_EMAIL, ACCOUNT_EXIST, UNKNOWN_ERROR
-    }
-
     private AccountDAO accountDAO = new AccountDAO();
 
     public Account getAccountById(int id) {
@@ -35,22 +31,52 @@ public class AccountService {
      *  UNKNOWN_ERROR - if there was any other error registering the account
      */
 
-    public saveAccountReply saveAccount(@NotNull Account a) {
+    public ResponseType saveAccount(@NotNull Account a) {
         // Checks if email is valid format
         if (!validateEmail(a.getEmail())) {
-            return saveAccountReply.INVALID_EMAIL;
+            return ResponseType.INVALID_EMAIL;
         }
         // Checks if account with email exists
         if (getAccountByEmail(a.getEmail()) != null){
-            return saveAccountReply.ACCOUNT_EXIST;
+            return ResponseType.ACCOUNT_EXIST;
         }
         // Encrypts password to MD5
         a.setPassword(Encryption.stringToMD5(a.getPassword()));
         // Saves Account to Database
         if (accountDAO.saveObject(a)) {
-            return saveAccountReply.SUCCESS;
+            return ResponseType.SUCCESS;
         }
-        return saveAccountReply.UNKNOWN_ERROR;
+        return ResponseType.UNKNOWN_ERROR;
+    }
+
+    /**
+     * Checks if account matches information in database.
+     * @param a The account we're trying to validate. cannot be null
+     * @return returns a saveAccountReply with information regarding success:
+     *  SUCCESS          - if account email and password match database hash
+     *  INVALID_EMAIL    - if email is not a valid format
+     *  USER_NOT_FOUND   - if email is valid format but an account does not exist with email
+     *  INVALID_PASSWORD - if password does not match encrypted hash in database
+     */
+
+    public ResponseType validateAccount(@NotNull Account a) {
+        // Checks if email is valid format
+        if (!validateEmail(a.getEmail())) {
+            return ResponseType.INVALID_EMAIL;
+        }
+        // Checks if user exists
+        Account user = getAccountByEmail(a.getEmail());
+        if (user == null) {
+            return ResponseType.USER_NOT_FOUND;
+        }
+        // Encrypts user password
+        a.setPassword(Encryption.stringToMD5(a.getPassword()));
+        // makes sure password hashes match
+        if (!user.getPassword().equals(a.getPassword())){
+            return ResponseType.INVALID_PASSWORD;
+        }
+        // Finally, returns success
+        return ResponseType.SUCCESS;
     }
 
     /**

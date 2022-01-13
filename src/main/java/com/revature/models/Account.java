@@ -111,4 +111,15 @@ public class Account {
                 return AccountType.INVALID;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", accountType=" + accountType +
+                ", balance=" + balance +
+                ", id=" + id +
+                '}';
+    }
 }

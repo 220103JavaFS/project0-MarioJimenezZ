@@ -1,6 +1,5 @@
 package com.revature.controllers;
 
-import com.revature.dao.AccountDAO;
 import com.revature.models.Account;
 import com.revature.services.AccountService;
 import io.javalin.Javalin;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 
 public class AccountController implements Controller{
 
-    private Logger log = LoggerFactory.getLogger(AccountDAO.class);
+    private Logger log = LoggerFactory.getLogger(AccountController.class);
 
     private AccountService accountService = new AccountService();
 
@@ -32,7 +31,7 @@ public class AccountController implements Controller{
                 Account customer = accountService.getAccountByEmail(a.getEmail());
                 ctx.json(customer);
                 ctx.status(201);
-                log.warn("Customer successfully registered with email: " + customer.getEmail());
+                log.info("Customer successfully registered with email: " + customer.getEmail());
                 break;
             case INVALID_EMAIL:
                 ctx.html("<h1> Error Creating Account: Invalid Email Format </h1>");
@@ -63,12 +62,39 @@ public class AccountController implements Controller{
         ctx.status(200);
     };
 
+    private final Handler validateAccount = ctx -> {
+        Account a = ctx.bodyAsClass(Account.class);
+
+        switch (accountService.validateAccount(a)){
+            case SUCCESS:
+                Account customer = accountService.getAccountByEmail(a.getEmail());
+                ctx.json(customer);
+                ctx.status(201);
+                log.info("Customer successfully logged in via email: " + customer.getEmail());
+                break;
+            case INVALID_EMAIL:
+                ctx.html("<h1> Error Logging In: Invalid Email Format </h1>");
+                log.warn("Customer tried logging in with invalid email: " + a.getEmail());
+                ctx.status(400);
+                break;
+            case USER_NOT_FOUND:
+                ctx.html("<h1> Error User Not Found: There's no customer registered to this email </h1>");
+                log.warn("Customer tried logging in unregistered email: " + a.getEmail());
+                break;
+            case INVALID_PASSWORD:
+                ctx.html("<h1> Error Invalid Password: password doesn't match database password </h1>");
+                log.warn("Customer tried logging in with invalid password for email:" + a.getEmail());
+                break;
+        }
+    };
+
     @Override
     public void addRoutes(Javalin app) {
 
         app.get("/accounts", getAllAccounts);
         app.get("/account/get/{id}", getAccount);
 
-        app.post("/account/add", addAccount);
+        app.post("/register", addAccount);
+        app.post("/login", validateAccount);
     }
 }
