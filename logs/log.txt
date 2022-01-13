@@ -1,0 +1,15 @@
+07:58:46.135 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+07:58:46.144 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @1889ms to org.eclipse.jetty.util.log.Slf4jLog
+07:58:46.144 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+07:58:46.159 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.1.1 (released October 10, 2021. Your Javalin version is 95 days old. Consider upgrading!).
+07:58:46.316 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+07:58:46.338 [] [main] INFO  io.javalin.Javalin - Javalin started in 172ms \o/
+07:59:06.361 [] [qtp1008925772-25] INFO  com.revature.dao.AccountDAO - Customer tried registering multiple accounts with email: amazonaws@fdsad.net
