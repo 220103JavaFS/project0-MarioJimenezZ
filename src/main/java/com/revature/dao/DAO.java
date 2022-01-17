@@ -2,12 +2,15 @@ package com.revature.dao;
 
 import java.util.ArrayList;
 
-public abstract class DAO<T> {
+public interface DAO<T> {
+    
+    boolean save(T o);
 
-    ArrayList<T> objects = new ArrayList<>();
+    boolean update(T o);
 
-    DatabaseDAO database = DatabaseDAO.getInstance();
+    boolean delete(int id);
 
-    abstract boolean update();
-    public abstract boolean saveObject(T o);
+    ArrayList<T> getAll();
+
+    T get(int id);
 }

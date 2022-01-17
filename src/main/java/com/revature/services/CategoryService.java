@@ -7,12 +7,23 @@ import java.util.ArrayList;
 
 public class CategoryService {
 
-    CategoryDAO categoryDAO;
+    //private CategoryDAO categoryDAO;
 
-    public CategoryService() {
-        categoryDAO = CategoryDAO.getInstance();
+    /*private static CategoryService instance;
+
+    public static CategoryService getInstance() {
+        if (instance == null) {
+            instance = new CategoryService();
+        }
+        return instance;
     }
 
-    public ArrayList<Category> getAllCategories() { return categoryDAO.getAllCategories();}
+    private CategoryService() {
+        categoryDAO = CategoryDAOImpl.getInstance();
+    }
+
+    public Category getCategoryById(int id) { return categoryDAO.getCategoryById(id); }
+
+    public ArrayList<Category> getAllCategories() { return categoryDAO.getAllObjects();}*/
 
 }

@@ -3,7 +3,7 @@ package com.revature.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Encryption {
+public class EncryptionUtil {
 
     public static String stringToMD5(String s) {
         final byte[] defaultBytes = s.getBytes();

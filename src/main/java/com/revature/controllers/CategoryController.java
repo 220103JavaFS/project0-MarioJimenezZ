@@ -9,13 +9,17 @@ import java.util.ArrayList;
 
 public class CategoryController implements Controller{
 
-    private CategoryService categoryService = new CategoryService();
+    private CategoryService categoryService;
+
+    public CategoryController() {
+        //categoryService = CategoryService.getInstance();
+    }
 
     private final Handler viewAllCategories = ctx -> {
-        ArrayList<Category> list = categoryService.getAllCategories();
+        //ArrayList<Category> list = categoryService.getAllCategories();
 
-        ctx.json(list);
-        ctx.status(200);
+        //ctx.json(list);
+        //ctx.status(200);
     };
 
     @Override

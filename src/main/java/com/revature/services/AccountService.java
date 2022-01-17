@@ -1,25 +1,29 @@
 package com.revature.services;
 
 import com.revature.dao.AccountDAO;
+import com.revature.dao.AccountDAOImpl;
 import com.revature.models.Account;
-import com.revature.utils.Encryption;
+import com.revature.utils.EncryptionUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public class AccountService {
 
-    private AccountDAO accountDAO = new AccountDAO();
+    private AccountDAO accountDAO = new AccountDAOImpl();
 
     public Account getAccountById(int id) {
-        return accountDAO.getAccountById(id);
+        return accountDAO.get(id);
     }
 
     public Account getAccountByEmail(String email) {
-        return accountDAO.getAccountByEmail(email);
+        if (!email.isEmpty() && validateEmail(email)) {
+            return accountDAO.getByEmail(email);
+        }
+        return null;
     }
 
-    public ArrayList<Account> getAllAccounts() { return accountDAO.getAllAccounts(); }
+    public ArrayList<Account> getAllAccounts() { return accountDAO.getAll(); }
 
     /**
      * Checks if new account can be registered.
@@ -32,6 +36,11 @@ public class AccountService {
      */
 
     public ResponseType saveAccount(@NotNull Account a) {
+        // Checks if first and last names are set
+        if (a.getFirstName().isEmpty() || a.getLastName().isEmpty()){
+            return ResponseType.INVALID_FIELDS;
+        }
+
         // Checks if email is valid format
         if (!validateEmail(a.getEmail())) {
             return ResponseType.INVALID_EMAIL;
@@ -41,9 +50,9 @@ public class AccountService {
             return ResponseType.ACCOUNT_EXIST;
         }
         // Encrypts password to MD5
-        a.setPassword(Encryption.stringToMD5(a.getPassword()));
+        a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
         // Saves Account to Database
-        if (accountDAO.saveObject(a)) {
+        if (accountDAO.save(a)) {
             return ResponseType.SUCCESS;
         }
         return ResponseType.UNKNOWN_ERROR;
@@ -70,13 +79,50 @@ public class AccountService {
             return ResponseType.USER_NOT_FOUND;
         }
         // Encrypts user password
-        a.setPassword(Encryption.stringToMD5(a.getPassword()));
+        a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
         // makes sure password hashes match
         if (!user.getPassword().equals(a.getPassword())){
             return ResponseType.INVALID_PASSWORD;
         }
         // Finally, returns success
         return ResponseType.SUCCESS;
+    }
+
+    public ResponseType deleteAccount(@NotNull Account a) {
+
+        if (accountDAO.delete(a.getId())) {
+            return ResponseType.SUCCESS;
+        }
+        return ResponseType.UNKNOWN_ERROR;
+    }
+
+    public ResponseType deleteAccount(int id) {
+
+        Account a = getAccountById(id);
+
+        if (a == null) {
+            return ResponseType.INVALID_USER;
+        }
+
+        return deleteAccount(a);
+    }
+
+    public ResponseType updateAccount(@NotNull Account a) {
+        // Checks if first and last names are set
+        if (a.getFirstName().isEmpty() || a.getLastName().isEmpty()){
+            return ResponseType.INVALID_FIELDS;
+        }
+        // Checks if email is valid format
+        if (!validateEmail(a.getEmail())) {
+            return ResponseType.INVALID_EMAIL;
+        }
+        // Encrypts password to MD5
+        a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
+        // Updates object to database
+        if (accountDAO.update(a)) {
+            return ResponseType.SUCCESS;
+        }
+        return ResponseType.UNKNOWN_ERROR;
     }
 
     /**
@@ -89,5 +135,4 @@ public class AccountService {
         String regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
         return  e.matches(regex);
     }
-
 }

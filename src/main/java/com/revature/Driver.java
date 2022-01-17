@@ -10,7 +10,11 @@ public class Driver {
     public static void main(String[] args) {
         app = Javalin.create();
 
-        configure(new AccountController(),new ProductController(), new CategoryController());
+        configure(new AccountController(),
+                new ProductController(),
+                new CategoryController(),
+                new LoginController()
+        );
 
         app.start(7000);
 

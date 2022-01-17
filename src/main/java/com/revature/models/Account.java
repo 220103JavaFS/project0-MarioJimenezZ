@@ -5,10 +5,11 @@ import java.util.Objects;
 public class Account {
 
     public enum AccountType {
-        CUSTOMER, ADMINISTRATOR, SELLER, INVALID, PREMIUM
+        CUSTOMER, ADMINISTRATOR, SELLER, PREMIUM, INVALID
     }
 
-
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private AccountType accountType;
@@ -17,31 +18,12 @@ public class Account {
 
     public Account() { }
 
-    public Account(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+    public Account(String firstName, String lastName, String email, String password) {
 
-    public Account(String email, String password, AccountType accountType, double balance, int id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.accountType = accountType;
-        this.balance = balance;
-        this.id = id;
-    }
-
-    public Account(String email, String password, String accountType, double balance, int id) {
-        this.email = email;
-        this.password = password;
-        this.accountType = stringToAccountType(accountType);
-        this.balance = balance;
-        this.id = id;
-    }
-
-    public Account(String email, String password, String accountType) {
-        this.email = email;
-        this.password = password;
-        this.accountType = stringToAccountType(accountType);
     }
 
     public int getId() {
@@ -50,6 +32,14 @@ public class Account {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setEmail(String email) {
@@ -64,8 +54,18 @@ public class Account {
         this.accountType = accountType;
     }
 
+    public void setAccountType(String accountType) { this.accountType = stringToAccountType(accountType); }
+
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmail() {
@@ -115,7 +115,9 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "email='" + email + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", accountType=" + accountType +
                 ", balance=" + balance +
