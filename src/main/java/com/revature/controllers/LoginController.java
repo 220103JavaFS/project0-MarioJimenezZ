@@ -7,8 +7,6 @@ import io.javalin.http.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.security.auth.login.LoginContext;
-
 public class LoginController implements Controller {
 
     private AccountService accountService = new AccountService();
@@ -31,11 +29,12 @@ public class LoginController implements Controller {
 
             switch (accountService.validateAccount(a)){
                 case SUCCESS:
-                    Account customer = accountService.getAccountByEmail(a.getEmail());
-                    ctx.req.getSession().setAttribute("user", customer);
-                    ctx.json(customer);
+                    Account user = accountService.getAccountByEmail(a.getEmail());
+                    // Sets user session to user Object
+                    ctx.req.getSession().setAttribute("user", user);
+                    ctx.json(user);
                     ctx.status(200);
-                    log.info("Customer successfully logged in via email: " + customer.getEmail());
+                    log.info("Customer successfully logged in via email: " + user.getEmail());
                     break;
                 case INVALID_EMAIL:
                     ctx.html("<h1> Error Logging In: Invalid Email Format </h1>");

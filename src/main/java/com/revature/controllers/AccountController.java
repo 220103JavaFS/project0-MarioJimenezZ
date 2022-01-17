@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.models.Account;
+import com.revature.models.Account.AccountType;
 import com.revature.models.AccountDTO;
 import com.revature.services.AccountService;
 import io.javalin.Javalin;
@@ -18,15 +19,18 @@ public class AccountController implements Controller{
 
     public AccountController() {}
 
-    private final Handler viewAccount = ctx -> {
+    private final Handler getAccount = ctx -> {
         if (ctx.req.getSession(false) != null) {
 
             Account a = (Account) ctx.req.getSession().getAttribute("user");
 
             if (a != null) {
-                ctx.json(a);
-                ctx.status(200);
-                log.info("User is viewing account " + a);
+                Account user = accountService.getAccountByEmail(a.getEmail());
+                if (user != null) {
+                    ctx.json(user);
+                    ctx.status(200);
+                    log.info("User is viewing account " + a);
+                }
             }
         } else {
             ctx.html("NOT_LOGGED_IN");
@@ -38,10 +42,10 @@ public class AccountController implements Controller{
     private final Handler getAllAccounts = ctx -> {
         if (ctx.req.getSession(false) != null) {
 
-            Account a = (Account) ctx.req.getSession().getAttribute("user");
+                Account a = (Account) ctx.req.getSession().getAttribute("user");
 
             // Only administrators can view all
-            if (a != null && a.getAccountType() == Account.AccountType.ADMINISTRATOR) {
+            if (a != null && a.getAccountType() == AccountType.ADMINISTRATOR) {
 
                 ArrayList<Account> list = accountService.getAllAccounts();
 
@@ -68,7 +72,9 @@ public class AccountController implements Controller{
             Account a = ctx.bodyAsClass(Account.class);
             switch (accountService.saveAccount(a)) {
                 case SUCCESS:
-                    ctx.json(a);
+                    Account new_user = accountService.getAccountByEmail(a.getEmail());
+                    ctx.json(new_user);
+                    ctx.req.getSession().setAttribute("user", new_user);
                     ctx.status(201);
                     log.info("Customer successfully registered with email: " + a.getEmail());
                     break;
@@ -143,58 +149,132 @@ public class AccountController implements Controller{
         }
     };
 
-    private final Handler getAccount = ctx -> {
-        String pathId = ctx.pathParam("id");
-        int id = Integer.parseInt(pathId);
+    private final Handler getAccountById = ctx -> {
+        if (ctx.req.getSession(false) != null) {
 
-        Account a = accountService.getAccountById(id);
+            Account a = (Account) ctx.req.getSession().getAttribute("user");
 
-        if (a != null) {
-            ctx.json(a);
-            ctx.status(200);
+            if (a != null && a.getAccountType() == AccountType.ADMINISTRATOR) {
+                String pathId = ctx.pathParam("id");
+                int id = Integer.parseInt(pathId);
+
+                Account user = accountService.getAccountById(id);
+
+                if (user != null) {
+                    ctx.json(user);
+                    ctx.status(200);
+                } else {
+                    ctx.html("<h1> Cannot find the user with ID : " + id + "</h1>");
+                    log.warn("User tried retrieving non-existing account with id : " + id);
+                    ctx.status(400);
+                }
+            } else {
+                ctx.html("NOT_ADMINISTRATOR");
+                ctx.status(401);
+                log.warn("User tried to get user by ID without being administrator");
+            }
         } else {
-            ctx.html("<h1> Cannot find the user with ID : " + id + "</h1>");
-            log.warn("User tried retrieving non-existing account with id : " + id);
-            ctx.status(400);
+            ctx.html("NOT_LOGGED_IN");
+            ctx.status(401);
+            log.warn("User tried to delete someone without being logged in");
         }
     };
 
-    private final Handler deleteAccount = ctx -> {
+    private final Handler deleteById = ctx -> {
 
-        String pathId = ctx.pathParam("id");
-        int id = Integer.parseInt(pathId);
+        if (ctx.req.getSession(false) != null) {
 
-        switch (accountService.deleteAccount(id)){
-            case SUCCESS:
-                ctx.html("<h1> Deleted User ID : " + id + " Successfully </h1>");
-                log.info("Successfully deleted account by ID : " + id);
-                ctx.status(200);
-                break;
-            case INVALID_USER:
-                ctx.html("<h1>Error Invalid User ID : " + id + " </h1>");
-                log.info("User tried to delete account that does not exist by ID : " + id);
-                ctx.status(400);
-                break;
-            default:
-            case UNKNOWN_ERROR:
-                ctx.html("<h1> Unknown Error, Cannot Delete Account with ID : " + id + "</h1>");
-                ctx.status(400);
-                log.error("Unknown error while trying to delete account by ID: " + id);
-                break;
+            Account a = (Account) ctx.req.getSession().getAttribute("user");
 
+            if (a != null && a.getAccountType() == AccountType.ADMINISTRATOR) {
+
+                String pathId = ctx.pathParam("id");
+                int id = Integer.parseInt(pathId);
+
+                switch (accountService.deleteAccount(id)) {
+                    case SUCCESS:
+                        ctx.html("<h1> Deleted User ID : " + id + " Successfully </h1>");
+                        log.info("Successfully deleted account by ID : " + id);
+                        ctx.status(200);
+                        break;
+                    case INVALID_USER:
+                        ctx.html("<h1>Error Invalid User ID : " + id + " </h1>");
+                        log.info("User tried to delete account that does not exist by ID : " + id);
+                        ctx.status(400);
+                        break;
+                    default:
+                    case UNKNOWN_ERROR:
+                        ctx.html("<h1> Unknown Error, Cannot Delete Account with ID : " + id + "</h1>");
+                        ctx.status(400);
+                        log.error("Unknown error while trying to delete account by ID: " + id);
+                        break;
+
+                }
+            } else {
+                ctx.html("NOT_ADMINISTRATOR");
+                ctx.status(401);
+                log.warn("User tried to delete user without being administrator");
+            }
+        } else {
+            ctx.html("NOT_LOGGED_IN");
+            ctx.status(401);
+            log.warn("User tried to delete someone without being logged in");
+        }
+    };
+
+    private final Handler deleteAccount = ctx ->  {
+        if (ctx.req.getSession(false) != null) {
+
+            Account a = (Account) ctx.req.getSession().getAttribute("user");
+
+            if (a != null) {
+                int id = a.getId();
+                switch (accountService.deleteAccount(id)) {
+                    case SUCCESS:
+                        ctx.html("<h1> Deleted User ID : " + id + " Successfully </h1>");
+                        log.info("Successfully deleted account by ID : " + id);
+                        ctx.req.getSession().invalidate();
+                        ctx.status(200);
+                        break;
+                    case INVALID_USER:
+                        ctx.html("<h1>Error Invalid User ID : " + id + " </h1>");
+                        log.info("User tried to delete account that does not exist by ID : " + id);
+                        ctx.status(400);
+                        break;
+                    default:
+                    case UNKNOWN_ERROR:
+                        ctx.html("<h1> Unknown Error, Cannot Delete Account with ID : " + id + "</h1>");
+                        ctx.status(400);
+                        log.error("Unknown error while trying to delete account by ID: " + id);
+                        break;
+
+                }
+            }
+        } else {
+            ctx.html("NOT_LOGGED_IN");
+            ctx.status(401);
+            log.warn("User tried viewing account without logging in");
         }
     };
 
     @Override
     public void addRoutes(Javalin app) {
+        // ============ USER ROUTES ========== \\
         // Views User Account
-        app.get("/account", viewAccount);
+        app.get("/account", getAccount);
         // Updates user Account
         app.put("/account", updateAccount);
-        app.get("/accounts", getAllAccounts);
-        app.get("/account/view/{id}", getAccount);
-        app.get("/account/delete/{id}", deleteAccount);
-
+        // Deletes user Account
+        app.get("/account/delete", deleteAccount);
+        // Registers user Account
         app.post("/register", addAccount);
+
+        // ============ ADMIN ROUTES ========== \\
+        // Views user by ID
+        app.get("/account/view/{id}", getAccountById);
+        // Deletes user by ID
+        app.get("/account/delete/{id}", deleteById);
+        // Views all user accounts
+        app.get("/accounts", getAllAccounts);
     }
 }

@@ -1830,3 +1830,511 @@ java.lang.NullPointerException: Parameter specified as non-null is null: method 
 12:43:44.928 [] [JettyServerThreadPool-15] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
 12:43:48.241 [] [JettyServerThreadPool-14] INFO  c.r.controllers.AccountController - User tried registering a new account while being logged in
 12:43:56.204 [] [JettyServerThreadPool-19] INFO  c.r.controllers.LoginController - User Logged out
+12:52:51.323 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+12:52:51.333 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @398ms to org.eclipse.jetty.util.log.Slf4jLog
+12:52:51.334 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+12:52:51.351 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+12:52:51.596 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+12:52:51.596 [] [main] INFO  io.javalin.Javalin - Javalin started in 262ms \o/
+12:53:00.207 [] [JettyServerThreadPool-18] WARN  c.r.controllers.AccountController - User tried updating account without logging in
+12:53:09.732 [] [JettyServerThreadPool-15] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+12:53:18.601 [] [JettyServerThreadPool-14] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:13:01.343 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:13:01.353 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @392ms to org.eclipse.jetty.util.log.Slf4jLog
+13:13:01.354 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:13:01.371 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:13:01.617 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:13:01.617 [] [main] INFO  io.javalin.Javalin - Javalin started in 263ms \o/
+13:14:39.603 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:14:39.613 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @392ms to org.eclipse.jetty.util.log.Slf4jLog
+13:14:39.614 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:14:39.631 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:14:39.880 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:14:39.880 [] [main] INFO  io.javalin.Javalin - Javalin started in 267ms \o/
+13:15:37.131 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:15:37.141 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @409ms to org.eclipse.jetty.util.log.Slf4jLog
+13:15:37.142 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:15:37.160 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:15:37.406 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:15:37.406 [] [main] INFO  io.javalin.Javalin - Javalin started in 264ms \o/
+13:15:50.412 [] [JettyServerThreadPool-24] WARN  c.r.controllers.AccountController - User tried to delete someone without being logged in
+13:15:57.360 [] [JettyServerThreadPool-15] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: mario.jimenez@revature.net
+13:16:03.688 [] [JettyServerThreadPool-18] INFO  c.r.controllers.AccountController - User tried to delete account that does not exist by ID : 4
+13:19:35.752 [] [JettyServerThreadPool-12] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 10
+13:31:32.162 [] [JettyServerThreadPool-18] INFO  c.r.controllers.LoginController - User logged in with session already set
+13:31:36.562 [] [JettyServerThreadPool-13] INFO  c.r.controllers.LoginController - User Logged out
+13:31:43.081 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:31:43.091 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @391ms to org.eclipse.jetty.util.log.Slf4jLog
+13:31:43.092 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:31:43.109 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:31:43.352 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:31:43.352 [] [main] INFO  io.javalin.Javalin - Javalin started in 260ms \o/
+13:32:00.431 [] [JettyServerThreadPool-24] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:32:57.838 [] [JettyServerThreadPool-12] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 23
+13:34:31.591 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:34:31.601 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @399ms to org.eclipse.jetty.util.log.Slf4jLog
+13:34:31.602 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:34:31.621 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:34:31.871 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:34:31.871 [] [main] INFO  io.javalin.Javalin - Javalin started in 269ms \o/
+13:34:40.094 [] [JettyServerThreadPool-15] INFO  c.r.controllers.AccountController - Customer successfully registered with email: power.move@revature.net
+13:38:39.025 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:38:39.035 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @403ms to org.eclipse.jetty.util.log.Slf4jLog
+13:38:39.036 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:38:39.054 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:38:39.302 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:38:39.302 [] [main] INFO  io.javalin.Javalin - Javalin started in 267ms \o/
+13:38:47.698 [] [JettyServerThreadPool-24] WARN  c.r.controllers.LoginController - Customer tried logging in with invalid password for email:power.move@revature.net
+13:38:59.469 [] [JettyServerThreadPool-13] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:39:05.718 [] [JettyServerThreadPool-17] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 27
+13:39:12.947 [] [JettyServerThreadPool-19] INFO  c.r.controllers.AccountController - Customer successfully registered with email: power.move@revature.net
+13:39:29.334 [] [JettyServerThreadPool-17] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:39:45.945 [] [JettyServerThreadPool-19] WARN  io.javalin.Javalin - Uncaught exception
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "balance" (class com.revature.models.AccountDTO), not marked as ignorable (4 known properties: "lastName", "firstName", "email", "password"])
+ at [Source: (String)"{
+    "firstName": "PowerS",
+    "lastName": "Move",
+    "email": "power.move@revature.net",
+    "password": "password",
+    "balance" : 30
+}"; line: 6, column: 19] (through reference chain: com.revature.models.AccountDTO["balance"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1127)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1989)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1700)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1678)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:319)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at io.javalin.plugin.json.JavalinJackson.fromJsonString(JavalinJackson.kt:37)
+	at io.javalin.http.Context.bodyAsClass(Context.kt:114)
+	at com.revature.controllers.AccountController.lambda$new$3(AccountController.java:109)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:20)
+	at io.javalin.http.JavalinServlet.addHandler$lambda-5(JavalinServlet.kt:113)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:44)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service$tryWithExceptionMapper(JavalinServlet.kt:129)
+	at io.javalin.http.JavalinServlet.service$tryBeforeAndEndpointHandlers(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:52)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+13:40:27.719 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:40:27.731 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @422ms to org.eclipse.jetty.util.log.Slf4jLog
+13:40:27.731 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:40:27.749 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:40:28.002 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:40:28.002 [] [main] INFO  io.javalin.Javalin - Javalin started in 271ms \o/
+13:40:36.185 [] [JettyServerThreadPool-14] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:40:44.884 [] [JettyServerThreadPool-15] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:40:57.180 [] [JettyServerThreadPool-18] WARN  io.javalin.Javalin - Uncaught exception
+com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+ at [Source: (String)"{
+    "firstName": "PowerS",
+    "lastName": "Move",
+    "email": "power.move@revature.net",
+    "password": "password",
+}"; line: 6, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2391)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:735)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:659)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddName(ReaderBasedJsonParser.java:1860)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextFieldName(ReaderBasedJsonParser.java:962)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at io.javalin.plugin.json.JavalinJackson.fromJsonString(JavalinJackson.kt:37)
+	at io.javalin.http.Context.bodyAsClass(Context.kt:114)
+	at com.revature.controllers.AccountController.lambda$new$3(AccountController.java:109)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:20)
+	at io.javalin.http.JavalinServlet.addHandler$lambda-5(JavalinServlet.kt:113)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:44)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service$tryWithExceptionMapper(JavalinServlet.kt:129)
+	at io.javalin.http.JavalinServlet.service$tryBeforeAndEndpointHandlers(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:52)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+13:41:25.270 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:41:25.280 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @401ms to org.eclipse.jetty.util.log.Slf4jLog
+13:41:25.281 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:41:25.298 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:41:25.542 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:41:25.542 [] [main] INFO  io.javalin.Javalin - Javalin started in 262ms \o/
+13:41:40.912 [] [JettyServerThreadPool-24] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:41:44.297 [] [JettyServerThreadPool-14] WARN  io.javalin.Javalin - Uncaught exception
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.revature.models.AccountDTO` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: (String)"{
+    "firstName": "PowerS",
+    "lastName": "Move",
+    "email": "power.move@revature.net",
+    "password": "password",
+}"; line: 2, column: 5]
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1904)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1349)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1415)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:351)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:184)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at io.javalin.plugin.json.JavalinJackson.fromJsonString(JavalinJackson.kt:37)
+	at io.javalin.http.Context.bodyAsClass(Context.kt:114)
+	at com.revature.controllers.AccountController.lambda$new$3(AccountController.java:109)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:20)
+	at io.javalin.http.JavalinServlet.addHandler$lambda-5(JavalinServlet.kt:113)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:44)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service$tryWithExceptionMapper(JavalinServlet.kt:129)
+	at io.javalin.http.JavalinServlet.service$tryBeforeAndEndpointHandlers(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:52)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:137)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+13:41:50.001 [] [JettyServerThreadPool-17] WARN  io.javalin.Javalin - Uncaught exception
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.revature.models.AccountDTO` (no Creators, like default constructor, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+ at [Source: (String)"{
+    "firstName": "PowerS",
+    "lastName": "Move",
+    "email": "power.move@revature.net",
+    "password": "password"
+}"; line: 2, column: 5]
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1904)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleMissingInstantiator(DeserializationContext.java:1349)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.deserializeFromObjectUsingNonDefault(BeanDeserializerBase.java:1415)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserializeFromObject(BeanDeserializer.java:351)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:184)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at io.javalin.plugin.json.JavalinJackson.fromJsonString(JavalinJackson.kt:37)
+	at io.javalin.http.Context.bodyAsClass(Context.kt:114)
+	at com.revature.controllers.AccountController.lambda$new$3(AccountController.java:109)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:20)
+	at io.javalin.http.JavalinServlet.addHandler$lambda-5(JavalinServlet.kt:113)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:44)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service$tryWithExceptionMapper(JavalinServlet.kt:129)
+	at io.javalin.http.JavalinServlet.service$tryBeforeAndEndpointHandlers(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:52)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:748)
+13:42:37.586 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:42:37.596 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @404ms to org.eclipse.jetty.util.log.Slf4jLog
+13:42:37.597 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:42:37.615 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:42:37.864 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:42:37.864 [] [main] INFO  io.javalin.Javalin - Javalin started in 267ms \o/
+13:42:46.242 [] [JettyServerThreadPool-18] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:42:49.853 [] [JettyServerThreadPool-15] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:43:08.023 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:43:08.033 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @398ms to org.eclipse.jetty.util.log.Slf4jLog
+13:43:08.034 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:43:08.051 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:43:08.299 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:43:08.299 [] [main] INFO  io.javalin.Javalin - Javalin started in 265ms \o/
+13:43:18.860 [] [JettyServerThreadPool-17] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:43:22.536 [] [JettyServerThreadPool-14] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:43:36.615 [] [JettyServerThreadPool-18] INFO  c.r.controllers.AccountController - Customer successfully updated account with email: power.move@revature.net
+13:44:08.563 [] [JettyServerThreadPool-12] INFO  c.r.controllers.LoginController - User Logged out
+13:44:13.233 [] [JettyServerThreadPool-25] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: mario.jimenez@revature.net
+13:44:29.529 [] [JettyServerThreadPool-17] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 28
+13:44:33.165 [] [JettyServerThreadPool-25] INFO  c.r.controllers.LoginController - User Logged out
+13:44:36.889 [] [JettyServerThreadPool-17] WARN  c.r.controllers.LoginController - Customer tried logging in unregistered email: power.move@revature.net
+13:44:44.831 [] [JettyServerThreadPool-25] INFO  c.r.controllers.AccountController - Customer successfully registered with email: power.move@revature.net
+13:44:57.708 [] [JettyServerThreadPool-17] INFO  c.r.controllers.LoginController - User logged in with session already set
+13:45:12.326 [] [JettyServerThreadPool-25] WARN  c.r.controllers.AccountController - User tried to delete user without being administrator
+13:45:19.864 [] [JettyServerThreadPool-25] WARN  c.r.controllers.AccountController - User tried viewing all accounts without proper permissions
+13:49:03.991 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:49:04.001 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @393ms to org.eclipse.jetty.util.log.Slf4jLog
+13:49:04.002 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:49:04.020 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:49:04.265 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:49:04.265 [] [main] INFO  io.javalin.Javalin - Javalin started in 263ms \o/
+13:49:16.552 [] [JettyServerThreadPool-24] WARN  c.r.controllers.AccountController - User tried to delete someone without being logged in
+13:49:20.887 [] [JettyServerThreadPool-15] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: power.move@revature.net
+13:49:23.681 [] [JettyServerThreadPool-18] WARN  c.r.controllers.AccountController - User tried to get user by ID without being administrator
+13:49:27.333 [] [JettyServerThreadPool-19] INFO  c.r.controllers.LoginController - User Logged out
+13:49:33.295 [] [JettyServerThreadPool-18] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: mario.jimenez@revature.net
+13:50:05.018 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:50:05.030 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @417ms to org.eclipse.jetty.util.log.Slf4jLog
+13:50:05.031 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:50:05.052 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:50:05.303 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:50:05.303 [] [main] INFO  io.javalin.Javalin - Javalin started in 272ms \o/
+13:50:15.712 [] [JettyServerThreadPool-24] WARN  c.r.controllers.AccountController - User tried to delete someone without being logged in
+13:50:20.017 [] [JettyServerThreadPool-16] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: mario.jimenez@revature.net
+13:50:23.348 [] [JettyServerThreadPool-19] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 5
+13:50:59.902 [] [JettyServerThreadPool-12] WARN  c.r.controllers.AccountController - User tried retrieving non-existing account with id : 5
+13:53:20.810 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:53:20.821 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @410ms to org.eclipse.jetty.util.log.Slf4jLog
+13:53:20.822 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:53:20.839 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:53:21.096 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:53:21.096 [] [main] INFO  io.javalin.Javalin - Javalin started in 275ms \o/
+13:53:58.483 [] [JettyServerThreadPool-24] WARN  c.r.controllers.AccountController - User tried viewing account without logging in
+13:54:23.426 [] [JettyServerThreadPool-16] INFO  c.r.controllers.AccountController - Customer successfully registered with email: project.zero@revature.net
+13:54:39.550 [] [JettyServerThreadPool-14] INFO  c.r.controllers.AccountController - User is viewing account Account{firstName='Project', lastName='Zero', email='project.zero@revature.net', password='5f4dcc3b5aa765d61d8327deb882cf99', accountType=CUSTOMER, balance=0.0, id=0}
+13:56:00.090 [] [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+13:56:00.100 [] [main] INFO  org.eclipse.jetty.util.log - Logging initialized @404ms to org.eclipse.jetty.util.log.Slf4jLog
+13:56:00.101 [] [main] INFO  io.javalin.Javalin - Starting Javalin ...
+13:56:00.118 [] [main] INFO  io.javalin.Javalin - You are running Javalin 4.2.0 (released January 2, 2022).
+13:56:00.369 [] [main] INFO  io.javalin.Javalin - Listening on http://localhost:7000/
+13:56:00.369 [] [main] INFO  io.javalin.Javalin - Javalin started in 268ms \o/
+13:56:32.764 [] [JettyServerThreadPool-24] INFO  c.r.controllers.LoginController - Customer successfully logged in via email: project.zero@revature.net
+13:56:37.081 [] [JettyServerThreadPool-15] INFO  c.r.controllers.AccountController - Successfully deleted account by ID : 30
+13:56:42.623 [] [JettyServerThreadPool-14] INFO  c.r.controllers.AccountController - Customer successfully registered with email: project.zero@revature.net
+13:56:49.915 [] [JettyServerThreadPool-19] INFO  c.r.controllers.AccountController - User is viewing account Account{firstName='Project', lastName='Zero', email='project.zero@revature.net', password='5f4dcc3b5aa765d61d8327deb882cf99', accountType=CUSTOMER, balance=0.0, id=31}
