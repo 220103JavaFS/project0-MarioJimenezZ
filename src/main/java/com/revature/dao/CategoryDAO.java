@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface CategoryDAO extends DAO<Category> {
 
     @Override
-    boolean save(Category o);
+    boolean save(Category c);
     @Override
     boolean delete(int id);
     @Override

@@ -1,29 +1,29 @@
 package com.revature.services;
 
-import com.revature.dao.AccountDAO;
-import com.revature.dao.AccountDAOImpl;
-import com.revature.models.Account;
+import com.revature.dao.UserDAO;
+import com.revature.dao.UserDAOImpl;
+import com.revature.models.User;
 import com.revature.utils.EncryptionUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class AccountService {
+public class UserService {
 
-    private AccountDAO accountDAO = new AccountDAOImpl();
+    private UserDAO userDAO = new UserDAOImpl();
 
-    public Account getAccountById(int id) {
-        return accountDAO.get(id);
+    public User getAccountById(int id) {
+        return userDAO.get(id);
     }
 
-    public Account getAccountByEmail(String email) {
+    public User getAccountByEmail(String email) {
         if (!email.isEmpty() && validateEmail(email)) {
-            return accountDAO.getByEmail(email);
+            return userDAO.getByEmail(email);
         }
         return null;
     }
 
-    public ArrayList<Account> getAllAccounts() { return accountDAO.getAll(); }
+    public ArrayList<User> getAllAccounts() { return userDAO.getAll(); }
 
     /**
      * Checks if new account can be registered.
@@ -35,7 +35,7 @@ public class AccountService {
      *  UNKNOWN_ERROR - if there was any other error registering the account
      */
 
-    public ResponseType saveAccount(@NotNull Account a) {
+    public ResponseType saveAccount(@NotNull User a) {
         // Checks if first and last names are set
         if (a.getFirstName().isEmpty() || a.getLastName().isEmpty()){
             return ResponseType.INVALID_FIELDS;
@@ -52,7 +52,7 @@ public class AccountService {
         // Encrypts password to MD5
         a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
         // Saves Account to Database
-        if (accountDAO.save(a)) {
+        if (userDAO.save(a)) {
             return ResponseType.SUCCESS;
         }
         return ResponseType.UNKNOWN_ERROR;
@@ -68,13 +68,13 @@ public class AccountService {
      *  INVALID_PASSWORD - if password does not match encrypted hash in database
      */
 
-    public ResponseType validateAccount(@NotNull Account a) {
+    public ResponseType validateAccount(@NotNull User a) {
         // Checks if email is valid format
         if (!validateEmail(a.getEmail())) {
             return ResponseType.INVALID_EMAIL;
         }
         // Checks if user exists
-        Account user = getAccountByEmail(a.getEmail());
+        User user = getAccountByEmail(a.getEmail());
         if (user == null) {
             return ResponseType.USER_NOT_FOUND;
         }
@@ -88,9 +88,9 @@ public class AccountService {
         return ResponseType.SUCCESS;
     }
 
-    public ResponseType deleteAccount(@NotNull Account a) {
+    public ResponseType deleteAccount(@NotNull User a) {
 
-        if (accountDAO.delete(a.getId())) {
+        if (userDAO.delete(a.getId())) {
             return ResponseType.SUCCESS;
         }
         return ResponseType.UNKNOWN_ERROR;
@@ -98,7 +98,7 @@ public class AccountService {
 
     public ResponseType deleteAccount(int id) {
 
-        Account a = getAccountById(id);
+        User a = getAccountById(id);
 
         if (a == null) {
             return ResponseType.INVALID_USER;
@@ -107,7 +107,7 @@ public class AccountService {
         return deleteAccount(a);
     }
 
-    public ResponseType updateAccount(@NotNull Account a) {
+    public ResponseType updateAccount(@NotNull User a) {
         // Checks if first and last names are set
         if (a.getFirstName().isEmpty() || a.getLastName().isEmpty()){
             return ResponseType.INVALID_FIELDS;
@@ -119,7 +119,7 @@ public class AccountService {
         // Encrypts password to MD5
         a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
         // Updates object to database
-        if (accountDAO.update(a)) {
+        if (userDAO.update(a)) {
             return ResponseType.SUCCESS;
         }
         return ResponseType.UNKNOWN_ERROR;

@@ -1,5 +1,7 @@
 package com.revature.models.products;
 
+import com.revature.models.User;
+
 import java.util.Objects;
 
 public class Product {
@@ -9,15 +11,14 @@ public class Product {
     String description;
     double price;
     int id;
-    int sellerId;
+    User seller;
 
-    public Product(String name, Category category, String description, double price, int id, int sellerId) {
+    public Product(String name, Category category, String description, double price, User seller) {
         this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
-        this.id = id;
-        this.sellerId = sellerId;
+        this.seller = seller;
     }
 
     public Product() {
@@ -63,9 +64,9 @@ public class Product {
         this.price = price;
     }
 
-    public int getSellerId() { return sellerId; }
+    public User getSeller() { return seller; }
 
-    public void setSellerId(int sellerId) { this.sellerId = sellerId;  }
+    public void setSeller(User sellerId) { this.seller = sellerId;  }
 
     @Override
     public String toString() {

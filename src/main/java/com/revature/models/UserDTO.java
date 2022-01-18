@@ -1,6 +1,6 @@
 package com.revature.models;
 
-public class AccountDTO {
+public class UserDTO {
 
     public String firstName;
     public String lastName;
@@ -8,5 +8,5 @@ public class AccountDTO {
     public String password;
     public double balance;
 
-    public AccountDTO(){}
+    public UserDTO(){}
 }

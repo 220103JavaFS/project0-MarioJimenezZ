@@ -10,4 +10,5 @@ public enum ResponseType {
     INVALID_PASSWORD,
     INVALID_FIELDS,
     INVALID_CATEGORY,
+    INVALID_SELLER
 }

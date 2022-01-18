@@ -2,10 +2,10 @@ package com.revature.models;
 
 import java.util.Objects;
 
-public class Account {
+public class User {
 
     public enum AccountType {
-        CUSTOMER, ADMINISTRATOR, SELLER, PREMIUM, INVALID
+        INVALID, CUSTOMER, PREMIUM, SELLER, ADMINISTRATOR
     }
 
     private String firstName;
@@ -16,14 +16,15 @@ public class Account {
     private double balance;
     private int id;
 
-    public Account() { }
+    public User() { }
 
-    public Account(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, String password) {
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.accountType = AccountType.CUSTOMER;
     }
 
     public int getId() {
@@ -88,8 +89,8 @@ public class Account {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Double.compare(account.balance, balance) == 0 && id == account.id && Objects.equals(email, account.email) && Objects.equals(password, account.password) && accountType == account.accountType;
+        User user = (User) o;
+        return Double.compare(user.balance, balance) == 0 && id == user.id && Objects.equals(email, user.email) && Objects.equals(password, user.password) && accountType == user.accountType;
     }
 
     @Override

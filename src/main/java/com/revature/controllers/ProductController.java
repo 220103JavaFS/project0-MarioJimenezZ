@@ -1,7 +1,12 @@
 package com.revature.controllers;
 
+import com.revature.models.User;
 import com.revature.models.products.Product;
+import com.revature.models.products.ProductDTO;
+import com.revature.services.CategoryService;
 import com.revature.services.ProductService;
+import com.revature.services.ResponseType;
+import com.revature.utils.SessionUtil;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import org.slf4j.Logger;
@@ -12,6 +17,8 @@ import java.util.ArrayList;
 public class ProductController implements Controller{
 
     private ProductService productService = new ProductService();
+    private CategoryService categoryService = new CategoryService();
+
     private final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     public ProductController(){}
@@ -34,30 +41,26 @@ public class ProductController implements Controller{
     };
 
     private final Handler addProduct = ctx -> {
-        Product p = ctx.bodyAsClass(Product.class);
-
-        switch (productService.addProduct(p)){
-
-            case SUCCESS:
+        // Checks if user is at least a seller or higher
+        User u = SessionUtil.UserValidate(ctx, User.AccountType.SELLER);
+        if (u != null) {
+            // Creates Data Transfer Object
+            ProductDTO dto = ctx.bodyAsClass(ProductDTO.class);
+            // Creates new product with info
+            Product p = new Product(dto.name, categoryService.getCategoryById(dto.categoryId),
+                    dto.description, dto.price, u);
+            // Attempts to add product to database
+            ResponseType result = productService.addProduct(p);
+            // If we succeed
+            if (result == ResponseType.SUCCESS) {
                 ctx.status(201);
-                ctx.html("<h1> Added Product to Database! : " + p.getName() + "</h1>");
-                log.info("Successfully add product to database " + p);
-                break;
-            case INVALID_FIELDS:
-                ctx.html("<h1> Error Adding Product: Some fields may be empty (Price can't be 0) </h1>");
+                ctx.html("<h1> ADDED_PRODUCT : " + p.getName() + "</h1>");
+                log.info("ADDED PRODUCT TO DATABASE: \n " + p);
+            } else {
+                ctx.html("<h1>ERROR_ADDING_PRODUCT : " + result.name() + "</h1>");
                 ctx.status(400);
-                log.warn("User tried adding product with invalid fields: " + p);
-                break;
-            case INVALID_CATEGORY:
-                ctx.html("<h1> Error Adding Product: Invalid Category </h1>");
-                ctx.status(400);
-                log.warn("User tried adding product with invalid category: " + p.getCategory());
-                break;
-            default:
-            case UNKNOWN_ERROR:
-                ctx.html("<h1> Error Adding Product: Unknown Error </h1>");
-                ctx.status(400);
-                break;
+                log.warn("ERROR_ADDING_PRODUCT : \n" + p + " \n" + result.name());
+            }
         }
     };
 
@@ -65,7 +68,6 @@ public class ProductController implements Controller{
     public void addRoutes(Javalin app) {
         app.get("/products", getAllProducts);
         app.get("/product/{id}", getProduct);
-
         app.post("/product/add", addProduct);
     }
 }

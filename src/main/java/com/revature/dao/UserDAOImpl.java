@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import com.revature.models.Account;
+import com.revature.models.User;
 import com.revature.utils.ConnectionUtil;
 
 import org.slf4j.Logger;
@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AccountDAOImpl implements AccountDAO {
+public class UserDAOImpl implements UserDAO {
 
-    private final Logger log = LoggerFactory.getLogger(AccountDAOImpl.class);
+    private final Logger log = LoggerFactory.getLogger(UserDAOImpl.class);
 
     @Override
-    public Account getByEmail(String email) {
+    public User getByEmail(String email) {
         try(Connection conn = ConnectionUtil.getConnection()) {
             StringBuffer sql = new StringBuffer("SELECT * FROM accounts WHERE email = ?;");
 
@@ -25,16 +25,16 @@ public class AccountDAOImpl implements AccountDAO {
             ResultSet result = statement.executeQuery();
 
             if(result.next()) {
-                Account account = new Account();
-                account.setFirstName(result.getString("first_name"));
-                account.setLastName(result.getString("last_name"));
-                account.setEmail(result.getString("email"));
-                account.setPassword(result.getString("password"));
-                account.setBalance(result.getDouble("balance"));
-                account.setId(result.getInt("id"));
-                account.setAccountType(result.getString("type"));
+                User user = new User();
+                user.setFirstName(result.getString("first_name"));
+                user.setLastName(result.getString("last_name"));
+                user.setEmail(result.getString("email"));
+                user.setPassword(result.getString("password"));
+                user.setBalance(result.getDouble("balance"));
+                user.setId(result.getInt("id"));
+                user.setAccountType(result.getString("type"));
 
-                return account;
+                return user;
             }
             return null;
 
@@ -48,8 +48,8 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public ArrayList<Account> getAll() {
-        ArrayList<Account> list = new ArrayList<>();
+    public ArrayList<User> getAll() {
+        ArrayList<User> list = new ArrayList<>();
 
         try(Connection conn = ConnectionUtil.getConnection()) {
             StringBuffer sql = new StringBuffer("SELECT * FROM accounts ORDER BY id ASC");
@@ -57,16 +57,16 @@ public class AccountDAOImpl implements AccountDAO {
             ResultSet result = statement.executeQuery(sql.toString());
 
             while(result.next()) {
-                Account account = new Account();
-                account.setFirstName(result.getString("first_name"));
-                account.setLastName(result.getString("last_name"));
-                account.setEmail(result.getString("email"));
-                account.setPassword(result.getString("password"));
-                account.setBalance(result.getDouble("balance"));
-                account.setAccountType(result.getString("type"));
-                account.setId(result.getInt("id"));
+                User user = new User();
+                user.setFirstName(result.getString("first_name"));
+                user.setLastName(result.getString("last_name"));
+                user.setEmail(result.getString("email"));
+                user.setPassword(result.getString("password"));
+                user.setBalance(result.getDouble("balance"));
+                user.setAccountType(result.getString("type"));
+                user.setId(result.getInt("id"));
 
-                list.add(account);
+                list.add(user);
             }
 
 
@@ -80,23 +80,23 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public Account get(int id) {
+    public User get(int id) {
         try(Connection conn = ConnectionUtil.getConnection()) {
             StringBuffer sql = new StringBuffer("SELECT * FROM accounts WHERE id = " + id);
             Statement statement = conn.createStatement();
             ResultSet result = statement.executeQuery(sql.toString());
 
             if(result.next()) {
-                Account account = new Account();
-                account.setFirstName(result.getString("first_name"));
-                account.setLastName(result.getString("last_name"));
-                account.setEmail(result.getString("email"));
-                account.setPassword(result.getString("password"));
-                account.setBalance(result.getDouble("balance"));
-                account.setId(result.getInt("id"));
-                account.setAccountType(result.getString("type"));
+                User user = new User();
+                user.setFirstName(result.getString("first_name"));
+                user.setLastName(result.getString("last_name"));
+                user.setEmail(result.getString("email"));
+                user.setPassword(result.getString("password"));
+                user.setBalance(result.getDouble("balance"));
+                user.setId(result.getInt("id"));
+                user.setAccountType(result.getString("type"));
 
-                return account;
+                return user;
             }
 
 
@@ -110,7 +110,7 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public boolean save(Account a) {
+    public boolean save(User a) {
         try(Connection conn = ConnectionUtil.getConnection()){
             StringBuffer sql = new StringBuffer("INSERT INTO  accounts (first_name, last_name, email, password," +
                     " balance, type) VALUES (?,?,?,?,?,?);");
@@ -138,9 +138,9 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     @Override
-    public boolean update(Account a){
+    public boolean update(User a){
         try(Connection conn = ConnectionUtil.getConnection()){
-            StringBuffer sql = new StringBuffer("UPDATE ACCOUNTS SET" +
+            StringBuffer sql = new StringBuffer("UPDATE accounts SET" +
                     " first_name = ?, last_name = ?, email = ?, password = ?," +
                     " balance = ?, type = ? WHERE id = ?;");
 

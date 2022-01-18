@@ -7,13 +7,13 @@ public class Category {
     private String name;
     private String description;
     private int id;
+    private int products;
 
     public Category() {}
 
-    public Category(String name, String description, int id) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
-        this.id = id;
     }
 
     public Category(String name) {
@@ -42,6 +42,14 @@ public class Category {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getProducts() {
+        return products;
+    }
+
+    public void setProducts(int products) {
+        this.products = products;
     }
 
     @Override

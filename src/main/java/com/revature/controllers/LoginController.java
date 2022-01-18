@@ -1,7 +1,7 @@
 package com.revature.controllers;
 
-import com.revature.models.Account;
-import com.revature.services.AccountService;
+import com.revature.models.User;
+import com.revature.services.UserService;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import org.slf4j.Logger;
@@ -9,14 +9,14 @@ import org.slf4j.LoggerFactory;
 
 public class LoginController implements Controller {
 
-    private AccountService accountService = new AccountService();
+    private UserService userService = new UserService();
     private final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     private final Handler validateAccount = ctx -> {
         // Checks if session is already created
         if (ctx.req.getSession(false) != null) {
 
-            Account a = (Account) ctx.req.getSession().getAttribute("user");
+            User a = (User) ctx.req.getSession().getAttribute("user");
 
             if (a != null){
                 ctx.html("<h1> ALREADY_LOGGED_IN </h1>");
@@ -25,11 +25,11 @@ public class LoginController implements Controller {
             }
             // No Session exists
         } else {
-            Account a = ctx.bodyAsClass(Account.class);
+            User a = ctx.bodyAsClass(User.class);
 
-            switch (accountService.validateAccount(a)){
+            switch (userService.validateAccount(a)){
                 case SUCCESS:
-                    Account user = accountService.getAccountByEmail(a.getEmail());
+                    User user = userService.getAccountByEmail(a.getEmail());
                     // Sets user session to user Object
                     ctx.req.getSession().setAttribute("user", user);
                     ctx.json(user);
