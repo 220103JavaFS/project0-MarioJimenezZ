@@ -1,7 +1,10 @@
 package com.revature.controllers;
 
 import com.revature.models.User;
+import com.revature.models.UserDTO;
+import com.revature.services.ResponseType;
 import com.revature.services.UserService;
+import com.revature.utils.SessionUtil;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import org.slf4j.Logger;
@@ -14,57 +17,49 @@ public class LoginController implements Controller {
 
     private final Handler validateAccount = ctx -> {
         // Checks if session is already created
-        if (ctx.req.getSession(false) != null) {
-
-            User a = (User) ctx.req.getSession().getAttribute("user");
-
-            if (a != null){
-                ctx.html("<h1> ALREADY_LOGGED_IN </h1>");
-                ctx.status(200);
-                log.info("User logged in with session already set");
-            }
+        User u = SessionUtil.UserValidate(ctx, User.AccountType.CUSTOMER);
+        if (u != null) {
+            ctx.html("<h1> ALREADY_LOGGED_IN </h1>");
+            ctx.status(200);
+            log.info("User tried logging in with session already set" + u);
             // No Session exists
         } else {
-            User a = ctx.bodyAsClass(User.class);
 
-            switch (userService.validateAccount(a)){
-                case SUCCESS:
-                    User user = userService.getAccountByEmail(a.getEmail());
-                    // Sets user session to user Object
-                    ctx.req.getSession().setAttribute("user", user);
-                    ctx.json(user);
-                    ctx.status(200);
-                    log.info("Customer successfully logged in via email: " + user.getEmail());
-                    break;
-                case INVALID_EMAIL:
-                    ctx.html("<h1> Error Logging In: Invalid Email Format </h1>");
-                    log.warn("Customer tried logging in with invalid email: " + a.getEmail());
-                    ctx.status(400);
-                    break;
-                case USER_NOT_FOUND:
-                    ctx.html("<h1> Error User Not Found: There's no customer registered to this email </h1>");
-                    log.warn("Customer tried logging in unregistered email: " + a.getEmail());
-                    ctx.status(400);
-                    break;
-                case INVALID_PASSWORD:
-                    ctx.html("<h1> Error Invalid Password: password doesn't match database password </h1>");
-                    log.warn("Customer tried logging in with invalid password for email:" + a.getEmail());
-                    ctx.status(400);
-                    break;
+            UserDTO dto = ctx.bodyAsClass(UserDTO.class);
+            User a = new User(dto.email, dto.password);
+
+            ResponseType result = userService.validateAccount(a);
+
+            if (result == ResponseType.SUCCESS){
+                // Grabs user info from database to set session
+                User user = userService.getAccountByEmail(a.getEmail());
+                // Sets user session to user Object
+                ctx.req.getSession().setAttribute("user", user);
+                // Shows user in json format
+                ctx.json(user);
+                // Sends ok Status
+                ctx.status(200);
+                // Logs information to our log
+                log.info("Customer successfully logged in via email: " + user.getEmail());
+            } else {
+                ctx.html("<h1>ERROR_LOGGING_IN : " + result.name() + "</h1>");
+                log.warn("ERROR_LOGGING_IN : \n" + a + " \n " + result.name());
+                ctx.status(400);
             }
-
         }
     };
 
     private final Handler invalidateSession = ctx -> {
         // Checks if session is already created
-        if (ctx.req.getSession(false) != null) {
+        User u = SessionUtil.UserValidate(ctx, User.AccountType.CUSTOMER);
+        if (u != null) {
             ctx.req.getSession().invalidate();
             ctx.status(200);
             ctx.html("<h1> USER_LOGGED_OUT </h1>");
-            log.info("User Logged out");
+            log.info("User Logged out : " + u);
         } else {
             ctx.html("<h1> USER_NOT_LOGGED_IN </h1>");
+            ctx.status(400);
             log.info("User tried logging out without being logged in");
         }
     };
