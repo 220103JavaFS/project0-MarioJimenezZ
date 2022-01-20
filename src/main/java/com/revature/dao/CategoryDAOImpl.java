@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import com.revature.models.products.Category;
+import com.revature.models.Category;
 import com.revature.utils.ConnectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

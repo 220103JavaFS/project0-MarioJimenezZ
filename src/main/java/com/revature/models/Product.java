@@ -1,24 +1,22 @@
-package com.revature.models.products;
-
-import com.revature.models.User;
+package com.revature.models;
 
 import java.util.Objects;
 
 public class Product {
 
     String name;
-    Category category;
+    int categoryId;
     String description;
     double price;
     int id;
-    User seller;
+    int sellerId;
 
-    public Product(String name, Category category, String description, double price, User seller) {
+    public Product(String name, int categoryId, String description, double price, int sellerId) {
         this.name = name;
-        this.category = category;
+        this.categoryId = categoryId;
         this.description = description;
         this.price = price;
-        this.seller = seller;
+        this.sellerId = sellerId;
     }
 
     public Product() {
@@ -40,12 +38,12 @@ public class Product {
         this.name = name;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getDescription() {
@@ -64,17 +62,19 @@ public class Product {
         this.price = price;
     }
 
-    public User getSeller() { return seller; }
+    public int getSellerId() { return sellerId; }
 
-    public void setSeller(User sellerId) { this.seller = sellerId;  }
+    public void setSellerId(int sellerId) { this.sellerId = sellerId;  }
 
     @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
-                ", category='" + category + '\'' +
+                ", categoryId=" + categoryId +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", id=" + id +
+                ", sellerId=" + sellerId +
                 '}';
     }
 
@@ -83,11 +83,11 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Double.compare(product.price, price) == 0 && Objects.equals(name, product.name) && Objects.equals(category, product.category) && Objects.equals(description, product.description);
+        return categoryId == product.categoryId && Double.compare(product.price, price) == 0 && id == product.id && sellerId == product.sellerId && Objects.equals(name, product.name) && Objects.equals(description, product.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, category, description, price);
+        return Objects.hash(name, categoryId, description, price, id, sellerId);
     }
 }

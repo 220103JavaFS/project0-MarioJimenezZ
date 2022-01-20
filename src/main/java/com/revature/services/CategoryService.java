@@ -2,7 +2,7 @@ package com.revature.services;
 
 import com.revature.dao.CategoryDAO;
 import com.revature.dao.CategoryDAOImpl;
-import com.revature.models.products.Category;
+import com.revature.models.Category;
 
 import java.util.ArrayList;
 

@@ -2,7 +2,7 @@ package com.revature.controllers;
 
 import com.revature.models.User;
 import com.revature.models.User.AccountType;
-import com.revature.models.UserDTO;
+import com.revature.models.dto.UserDTO;
 import com.revature.services.ResponseType;
 import com.revature.services.UserService;
 import com.revature.utils.SessionUtil;
@@ -27,6 +27,7 @@ public class UserController implements Controller{
             User user = userService.getAccountByEmail(u.getEmail());
             ctx.json(user);
             ctx.status(200);
+            ctx.req.getSession().setAttribute("user", user);
             log.info("User is viewing account " + u);
         }
     };
@@ -52,9 +53,7 @@ public class UserController implements Controller{
             // Creates a new user with the information from the data transfer object
             User u = new User(dto.firstName, dto.lastName, dto.email, dto.password);
             // Tries to save user
-
             ResponseType result = userService.saveAccount(u);
-
             if (result == ResponseType.SUCCESS) {
                 // Grabs new user information from database (this includes new user id)
                 User db_user = userService.getAccountByEmail(u.getEmail());
@@ -81,7 +80,6 @@ public class UserController implements Controller{
         if (u != null) {
             // Data transfer object
             UserDTO info = ctx.bodyAsClass(UserDTO.class);
-
             // Checks if there's already an account with the email that we're changing to
             if (!info.email.equals(u.getEmail())){
                 User check = userService.getAccountByEmail(info.email);
@@ -92,7 +90,6 @@ public class UserController implements Controller{
                     return;
                 }
             }
-
             // Updates account info with the information from the data transfer object
             u.setFirstName(info.firstName);
             u.setLastName(info.lastName);
@@ -107,6 +104,7 @@ public class UserController implements Controller{
 
             if (result == ResponseType.SUCCESS) {
                 User user = userService.getAccountByEmail(u.getEmail());
+                ctx.req.getSession().setAttribute("user", user);
                 ctx.json(user);
                 ctx.status(200);
                 log.info("Customer successfully updated account with email: " + user.getEmail());
@@ -115,6 +113,54 @@ public class UserController implements Controller{
                 ctx.status(400);
                 log.warn("ERROR_UPDATING_ACCOUNT: \n " + u + "\n " + result.name());
             }
+        }
+    };
+
+    private final Handler updateAccountById = ctx -> {
+        User u = SessionUtil.UserValidate(ctx, AccountType.ADMINISTRATOR);
+        if (u != null) {
+            String pathId = ctx.pathParam("id");
+            int id = Integer.parseInt(pathId);
+            // user to update
+            User updating_user = userService.getAccountById(id);
+            if (updating_user == null){
+                ctx.html("<h1> ERROR_FINDING_USER </h1>");
+                ctx.status(400);
+                log.warn("User tried updating with invalid id : " + id);
+                return;
+            }
+            // Data transfer object
+            UserDTO info = ctx.bodyAsClass(UserDTO.class);
+            // Checks if there's already an account with the email that we're changing to
+            if (!info.email.equals(updating_user.getEmail())){
+                User check = userService.getAccountByEmail(info.email);
+                if (check != null){
+                    ctx.html("<h1> EMAIL_EXISTS </h1>");
+                    ctx.status(400);
+                    log.warn("User tried updating with duplicate email : " + u.getEmail());
+                    return;
+                }
+            }
+            // Updates account info with the information from the data transfer object
+            updating_user.setFirstName(info.firstName);
+            updating_user.setLastName(info.lastName);
+            updating_user.setEmail(info.email);
+            updating_user.setPassword(info.password);
+            updating_user.setBalance(info.balance);
+            // Tries to update the account
+            ResponseType result = userService.updateAccount(updating_user);
+
+            if (result == ResponseType.SUCCESS) {
+                User user = userService.getAccountByEmail(updating_user.getEmail());
+                ctx.json(user);
+                ctx.status(200);
+                log.info("admin updated account with email: " + user.getEmail());
+            } else {
+                ctx.html("<h1>ERROR_UPDATING_ACCOUNT: " + result.name() +"</h1>");
+                ctx.status(400);
+                log.warn("ERROR_UPDATING_ACCOUNT: \n " + u + "\n " + result.name());
+            }
+
         }
     };
 
@@ -193,8 +239,10 @@ public class UserController implements Controller{
         // ============ ADMIN ROUTES ========== \\
         // Views user by ID
         app.get("/account/view/{id}", getAccountById);
+        // Updates user by ID
+        app.put("account/view/{id}", updateAccountById);
         // Deletes user by ID
-        app.get("/account/delete/{id}", deleteById);
+        app.delete("/account/delete/{id}", deleteById);
         // Views all user accounts
         app.get("/accounts", getAllAccounts);
     }

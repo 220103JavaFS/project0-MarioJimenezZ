@@ -3,7 +3,7 @@ package com.revature;
 import com.revature.controllers.*;
 import io.javalin.Javalin;
 
-public class Driver {
+public class App {
 
     private static Javalin app;
 
@@ -13,7 +13,10 @@ public class Driver {
         configure(new UserController(),
                 new ProductController(),
                 new CategoryController(),
-                new LoginController()
+                new LoginController(),
+                new SellerApplicationController(),
+                new CartController(),
+                new OrderController()
         );
 
         app.start(7000);

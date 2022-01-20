@@ -1,8 +1,8 @@
 package com.revature.controllers;
 
 import com.revature.models.User;
-import com.revature.models.products.Category;
-import com.revature.models.products.CategoryDTO;
+import com.revature.models.Category;
+import com.revature.models.dto.CategoryDTO;
 import com.revature.services.CategoryService;
 import com.revature.services.ResponseType;
 import com.revature.utils.SessionUtil;

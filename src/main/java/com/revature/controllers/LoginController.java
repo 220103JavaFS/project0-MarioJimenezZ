@@ -1,7 +1,7 @@
 package com.revature.controllers;
 
 import com.revature.models.User;
-import com.revature.models.UserDTO;
+import com.revature.models.dto.UserDTO;
 import com.revature.services.ResponseType;
 import com.revature.services.UserService;
 import com.revature.utils.SessionUtil;
@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 public class LoginController implements Controller {
 
     private UserService userService = new UserService();
+
     private final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     private final Handler validateAccount = ctx -> {
@@ -24,7 +25,6 @@ public class LoginController implements Controller {
             log.info("User tried logging in with session already set" + u);
             // No Session exists
         } else {
-
             UserDTO dto = ctx.bodyAsClass(UserDTO.class);
             User a = new User(dto.email, dto.password);
 
@@ -57,10 +57,6 @@ public class LoginController implements Controller {
             ctx.status(200);
             ctx.html("<h1> USER_LOGGED_OUT </h1>");
             log.info("User Logged out : " + u);
-        } else {
-            ctx.html("<h1> USER_NOT_LOGGED_IN </h1>");
-            ctx.status(400);
-            log.info("User tried logging out without being logged in");
         }
     };
 

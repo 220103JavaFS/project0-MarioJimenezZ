@@ -51,6 +51,8 @@ public class UserService {
         }
         // Encrypts password to MD5
         a.setPassword(EncryptionUtil.stringToMD5(a.getPassword()));
+        // Starting Bonus 2000 balance
+        a.setBalance(2000.0);
         // Saves Account to Database
         if (userDAO.save(a)) {
             return ResponseType.SUCCESS;

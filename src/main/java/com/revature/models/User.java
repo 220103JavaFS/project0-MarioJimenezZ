@@ -15,6 +15,7 @@ public class User {
     private AccountType accountType;
     private double balance;
     private int id;
+    private int numOfOrders;
 
     public User() { }
 
@@ -88,6 +89,14 @@ public class User {
 
     public double getBalance() {
         return balance;
+    }
+
+    public int getNumOfOrders() {
+        return numOfOrders;
+    }
+
+    public void setNumOfOrders(int numOfOrders) {
+        this.numOfOrders = numOfOrders;
     }
 
     @Override

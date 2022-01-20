@@ -1,4 +1,4 @@
-package com.revature.models.products;
+package com.revature.models.dto;
 
 public class CategoryDTO {
 

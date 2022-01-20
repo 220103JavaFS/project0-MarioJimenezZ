@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import com.revature.models.products.Product;
+import com.revature.models.Product;
 
 import java.util.ArrayList;
 

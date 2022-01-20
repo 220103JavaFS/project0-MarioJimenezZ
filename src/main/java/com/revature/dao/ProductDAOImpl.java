@@ -1,9 +1,8 @@
 package com.revature.dao;
 
-import com.revature.models.User;
-import com.revature.models.products.Category;
-import com.revature.models.products.Product;
+import com.revature.models.Product;
 import com.revature.utils.ConnectionUtil;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +17,7 @@ public class ProductDAOImpl implements ProductDAO{
     private final Logger log = LoggerFactory.getLogger(ProductDAOImpl.class);
 
     @Override
-    public boolean save(Product p) {
+    public boolean save(@NotNull Product p) {
         try(Connection conn = ConnectionUtil.getConnection()){
             StringBuffer sql = new StringBuffer("INSERT INTO  products (seller_id, name, category_id" +
                     ", description, price) VALUES (?,?,?,?,?);");
@@ -26,9 +25,9 @@ public class ProductDAOImpl implements ProductDAO{
             PreparedStatement statement = conn.prepareStatement(sql.toString());
 
             int count = 0;
-            statement.setInt(++count, p.getSeller().getId());
+            statement.setInt(++count, p.getSellerId());
             statement.setString(++count, p.getName());
-            statement.setInt(++count, p.getCategory().getId());
+            statement.setInt(++count, p.getCategoryId());
             statement.setString(++count, p.getDescription());
             statement.setDouble(++count, p.getPrice());
 
@@ -44,7 +43,7 @@ public class ProductDAOImpl implements ProductDAO{
         return false;
     }
     @Override
-    public boolean update(Product p) {
+    public boolean update(@NotNull Product p) {
         try(Connection conn = ConnectionUtil.getConnection()){
             StringBuffer sql = new StringBuffer("UPDATE products SET" +
                     " seller_id = ?, name = ?, category_id = ?, description = ?," +
@@ -53,9 +52,9 @@ public class ProductDAOImpl implements ProductDAO{
             PreparedStatement statement = conn.prepareStatement(sql.toString());
 
             int count = 0;
-            statement.setInt(++count, p.getSeller().getId());
+            statement.setInt(++count, p.getSellerId());
             statement.setString(++count, p.getName());
-            statement.setInt(++count, p.getCategory().getId());
+            statement.setInt(++count, p.getCategoryId());
             statement.setString(++count, p.getDescription());
             statement.setDouble(++count, p.getPrice());
             statement.setInt(++count, p.getId());
@@ -104,12 +103,8 @@ public class ProductDAOImpl implements ProductDAO{
                 p.setDescription(result.getString("description"));
                 p.setPrice(result.getDouble("price"));
                 p.setId(result.getInt("id"));
-
-                User seller = userDAO.get(result.getInt("seller_id"));
-                p.setSeller(seller);
-
-                Category category = categoryDAO.get(result.getInt("category_id"));
-                p.setCategory(category);
+                p.setSellerId(result.getInt("seller_id"));
+                p.setCategoryId(result.getInt("category_id"));
 
                 list.add(p);
             }
@@ -136,12 +131,8 @@ public class ProductDAOImpl implements ProductDAO{
                 p.setDescription(result.getString("description"));
                 p.setPrice(result.getDouble("price"));
                 p.setId(result.getInt("id"));
-
-                User seller = userDAO.get(result.getInt("seller_id"));
-                p.setSeller(seller);
-
-                Category category = categoryDAO.get(result.getInt("category_id"));
-                p.setCategory(category);
+                p.setSellerId(result.getInt("seller_id"));
+                p.setCategoryId(result.getInt("category_id"));
 
                 return p;
             }
